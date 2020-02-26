@@ -1,4 +1,4 @@
-function Kinetics = kineticsEcF268C()
+function Kinetics = kineticsEcF268C_EDTA()
   Kinetics.kbongtp = 10;
   Kinetics.kboffgtp = 3;
 

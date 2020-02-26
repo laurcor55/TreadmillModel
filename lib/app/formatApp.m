@@ -21,7 +21,6 @@ function app = formatApp(app)
   vertFontDisplace = 0.02;
   loweroffset = 0.05;
   rightoffset = 0.15;
-
   
   horFontDisplace = 0;
   
@@ -33,18 +32,15 @@ function app = formatApp(app)
   addKinetic(app, 'kbongdp', [0.45, 0.14], 2);
   addKinetic(app, 'kboffgdp', [0.62, 0.08], 1);
 
-
   addKinetic(app, 'ktongdp', [0.57, 0.65], 2);
   addKinetic(app, 'ktoffgdp', [0.74, 0.59], 1);
 
   addKinetic(app, 'ktongtp', [0.15, 0.65], 2);
   addKinetic(app, 'ktoffgtp', [0.32, 0.59], 1);
 
-
   addKinetic(app, 'kgdpexchange', [0.18, 0.91], 1);
   addKinetic(app, 'khyd', [0.43, 0.43], 1);
   addKinetic(app, 'knuc', [0.35, 0.91], 0);
-
 
   %set(app.ModelPanel, 'Units', 'normalized');
   %% Input Panel Components
@@ -61,23 +57,20 @@ function app = formatApp(app)
   bottomAlign = 0.7;
 
 
-  app.MixingButton = uicontrol('Parent',app.InputPanel,'Style','pushbutton','String','PF Mixing Experiment','FontSize',12,'Units','normalized','Position',[0.05 0.4 0.55 0.25],'BackgroundColor',gray,'ForegroundColor','w','Callback',@app.editMixing);
-  app.CapButton = uicontrol('Parent',app.InputPanel,'Style','pushbutton','String','Add Bottom Cap','FontSize',12,'Units','normalized','Position',[0.05 0.7 0.55 0.25],'BackgroundColor',gray,'ForegroundColor','w','Callback',@app.editCap);
-  app.DisassemblyButton = uicontrol('Parent',app.InputPanel,'Style','pushbutton','String','PF Disassembly Experiment','FontSize',12,'Units','normalized','Position',[0.05 0.1 0.55 0.25],'BackgroundColor',gray,'ForegroundColor','w','Callback',@app.editDisassembly);
-
+  
 
   leftAlign = 0.65;
   bottomAlign = 0.75;
   tab = 0.2;
-  app.ConcFtsZInput = uicontrol('Parent',app.InputPanel,'Style','edit','String',app.Parameters.concTotalFtsZ,'Units','normalized','Position',[leftAlign+tab bottomAlign inputWidth height]);
-  text(app.InputAxes,'String','[FtsZ] (\muM):','Interpreter','tex','Units','normalized','Position',[leftAlign bottomAlign+vertFontDisplace]);
 
+  addParameter(app, 'concTotalFtsZ', [0.66, 0.75], 2);
+  addParameter(app, 'totalTime', [0.66, 0.5], 1);
 
-  app.TimeInput = uicontrol('Parent',app.InputPanel,'Style','edit','String',app.Parameters.totalTime,'Units','normalized','Position',[leftAlign+tab bottomAlign-0.25 inputWidth height]);
-  text(app.InputAxes,'String','Time (sec)','Interpreter','tex','Units','normalized','Position',[leftAlign bottomAlign-0.25+vertFontDisplace]);
-
-
-  app.StartButton = uicontrol('Parent',app.InputPanel,'Style','pushbutton','String','Run','FontWeight','bold','FontSize',16,'Units','normalized','Position',[0.65 0.1 0.3 0.35],'BackgroundColor',darkGreen,'ForegroundColor','k','Callback',@app.startExperiment);
+  addButton(app, 'runButton', 'Run', [0.66, 0.1], 1, @app.startExperiment);
+  
+  addButton(app, 'mixingButton', 'PF Mixing Experiment', [0.05 0.4], 2, @app.editMixing);
+  addButton(app, 'capButton','Add Bottom Cap', [0.05, 0.7], 2, @app.editCap)
+  addButton(app, 'disassemblyButton', 'PF Disassembly Experiment', [0.05, 0.1], 2, @app.editDisassembly)
 
 
   %% Ouput Panel Components

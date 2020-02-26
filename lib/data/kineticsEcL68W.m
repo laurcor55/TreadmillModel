@@ -1,6 +1,6 @@
 function Kinetics = kineticsEcL68W()
   Kinetics.kbongtp = 10;
-  Kinetics.kboffgtp = 3;
+  Kinetics.kboffgtp = 1;
 
   Kinetics.kbongdp = 10;
   Kinetics.kboffgdp = 100;
@@ -9,14 +9,14 @@ function Kinetics = kineticsEcL68W()
   Kinetics.ktoffgdp = 6;
 
   Kinetics.ktongtp = 1;
-  Kinetics.ktoffgtp = 0.3;      
+  Kinetics.ktoffgtp = 0.1;      
 
   Kinetics.capKd = 0.15;
   Kinetics.kcaponpf = 2;
   Kinetics.kcapoffpf = 0.1; 
   Kinetics.kcapoffpfgdp = 10;
 
-  Kinetics.khyd = 0;
-  Kinetics.kgdpexchange = 2;
-  Kinetics.knuc = 1000;
+  Kinetics.khyd = 0.2;
+  Kinetics.kgdpexchange = 0.7;
+  Kinetics.knuc = 10;
 end

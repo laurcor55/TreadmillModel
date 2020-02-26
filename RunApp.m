@@ -22,25 +22,32 @@ classdef RunApp < handle
         knucInput;
         kgdpexchangeInput;
         khydInput;
-        MixingButton;
-        DisassemblyButton;
+        
+        
+        mixingButton;
+        disassemblyButton;
 
         CapFigure;
         CapAxes;
         CapDiagram;
+        
         capKdInput;
-        KCapOffInput;
-        KCapOnPfInput;
-        KCapOffPfInput;
+        kcaponpfInput;
+        kcapoffpfInput;
+        kcapoffpfgdpInput;
+
+
         ApplyCapKinetics;
+
+        concTotalFtsZInput;
+        concCapInput;
+        totalTimeInput;
 
         InputPanel;
         InputAxes;
-        ConcFtsZInput;
-        ConcBottomCapInput;
-        CapButton;
-        TimeInput;
-        StartButton;
+
+        capButton;
+        runButton;
         SavePFs;
 
         OutputPanel;
@@ -101,17 +108,14 @@ classdef RunApp < handle
         function applyKinetics(app,hObject,eventdata)
           darkGreen = [53 161 19]./255;
           gray = [50 50 50]./255;
-          app.Kinetics.capKd = str2double(app.capKdInput.String);
-          app.Kinetics.kcaponpf = str2double(app.KCapOnPfInput.String);
-          app.Kinetics.kcapoffpf = str2double(app.KCapOffPfInput.String);
-          app.Parameters.concCap = str2double(app.ConcBottomCapInput.String);
-
+          
+          app = updateKineticsParameters(app);
           delete(app.CapFigure);
           if app.Parameters.concCap == 0
             msgbox('Warning: [Cap] = 0');
-            set(app.CapButton, 'BackgroundColor', gray, 'String','Add Bottom Cap');
+            set(app.capButton, 'BackgroundColor', gray, 'String','Add Bottom Cap');
           else
-            set(app.CapButton, 'BackgroundColor', darkGreen, 'String',strcat('Add Bottom Cap', char(hex2dec('2713'))));
+            set(app.capButton, 'BackgroundColor', darkGreen, 'String',strcat('Add Bottom Cap', char(hex2dec('2713'))));
           end
         end
 

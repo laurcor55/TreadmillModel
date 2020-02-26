@@ -6,10 +6,10 @@ function app = formatDisassemblyPopup(app)
   if ~(isempty(answer))
     app.Parameters.initialRoundTime = str2num(answer{1});
     app.Parameters.disassemblePfs = 1;
-    set(app.DisassemblyButton, 'BackgroundColor', darkGreen , 'String',strcat('PF Disassembly Experiment  ', char(hex2dec('2713'))));
+    set(app.disassemblyButton, 'BackgroundColor', darkGreen , 'String',strcat('PF Disassembly Experiment  ', char(hex2dec('2713'))));
   else
     app.Parameters.disassemblePfs = 0;
-    set(app.DisassemblyButton, 'BackgroundColor', gray , 'String','PF Disassembly Experiment');
+    set(app.disassemblyButton, 'BackgroundColor', gray , 'String','PF Disassembly Experiment');
 
   end
 end

@@ -6,9 +6,9 @@ function app = formatMixingPopup(app)
   if ~(isempty(answer))
     app.Parameters.initialRoundTime = str2num(answer{1});
     app.Parameters.mixPFs = 1;
-    set(app.MixingButton, 'BackgroundColor', darkGreen, 'String',strcat('PF Mixing Experiment  ', char(hex2dec('2713'))));
+    set(app.mixingButton, 'BackgroundColor', darkGreen, 'String',strcat('PF Mixing Experiment  ', char(hex2dec('2713'))));
   else
     app.Parameters.mixPFs = 0;
-    set(app.MixingButton, 'BackgroundColor', gray, 'String','PF Mixing Experiment');
+    set(app.mixingButton, 'BackgroundColor', gray, 'String','PF Mixing Experiment');
   end
 end

@@ -12,7 +12,7 @@ function app = formatCapPopup(app)
 
   bottomAlign = 0.1;
   leftAlign = 0.4;
-  app.ConcBottomCapInput = uicontrol('Parent',app.CapFigure,'Style','edit','String',app.Parameters.concCap,'Units','normalized','Position',[leftAlign bottomAlign inputWidth height]);
+  app.concCapInput = uicontrol('Parent',app.CapFigure,'Style','edit','String',app.Parameters.concCap,'Units','normalized','Position',[leftAlign bottomAlign inputWidth height]);
   text(app.CapAxes,'String','[Cap] (\muM):','Interpreter','tex','Units','normalized','Position',[leftAlign-0.09 bottomAlign+vertFontDisplace]);
 
   bottomAlign = 0.2;
@@ -22,13 +22,20 @@ function app = formatCapPopup(app)
 
   bottomAlign = 0.3;
   leftAlign = 0.25;
-  app.KCapOnPfInput = uicontrol('Parent',app.CapFigure,'Style','edit','String',app.Kinetics.kcaponpf,'Units','normalized','Position',[leftAlign bottomAlign inputWidth height]);
+  app.kcaponpfInput = uicontrol('Parent',app.CapFigure,'Style','edit','String',app.Kinetics.kcaponpf,'Units','normalized','Position',[leftAlign bottomAlign inputWidth height]);
   text(app.CapAxes,'String','\muM^-^1 s^-^1','Interpreter','tex','Units','normalized','Position',[leftAlign+inputWidth+horFontDisplace bottomAlign+vertFontDisplace]);
 
   bottomAlign = 0.19;
   leftAlign = 0.27;
-  app.KCapOffPfInput = uicontrol('Parent',app.CapFigure,'Style','edit','String',app.Kinetics.kcapoffpf,'Units','normalized','Position',[leftAlign bottomAlign inputWidth height]);
+  app.kcapoffpfInput = uicontrol('Parent',app.CapFigure,'Style','edit','String',app.Kinetics.kcapoffpf,'Units','normalized','Position',[leftAlign bottomAlign inputWidth height]);
   text(app.CapAxes,'String','s^-^1','Interpreter','tex','Units','normalized','Position',[leftAlign+inputWidth+horFontDisplace bottomAlign+vertFontDisplace]);
+  
+  
+  bottomAlign = 0.05;
+  leftAlign = 0.27;
+  app.kcapoffpfgdpInput = uicontrol('Parent',app.CapFigure,'Style','edit','String',app.Kinetics.kcapoffpfgdp,'Units','normalized','Position',[leftAlign bottomAlign inputWidth height]);
+  text(app.CapAxes,'String','s^-^1','Interpreter','tex','Units','normalized','Position',[leftAlign+inputWidth+horFontDisplace bottomAlign+vertFontDisplace]);
+  
   
   colors = protocolormap;
   app.ApplyCapKinetics = uicontrol('Parent',app.CapFigure,'Style','pushbutton','String','Apply','BackgroundColor',colors(6,:),'ForegroundColor','w','Units','normalized','Position',[0.82 0.03 0.15 0.07],'Callback',@app.applyKinetics);
