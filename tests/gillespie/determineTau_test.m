@@ -17,9 +17,9 @@ Kinetics.kcapoffpfgdp = 4;
 
 
 
-Kinetics.indGtpaseRate = 0.5;
+Kinetics.khyd = 0.5;
 Kinetics.kgdpexchange= 5;
-Kinetics.kswitch = 5000;
+Kinetics.knuc = 5000;
 
 allPFs = {[1], [2; 3; 1; 2], [2], [1; 2; 5], [1; 4], [4; 5], [0],[],[2; 2; 2; 2; 2; 2], [2; 3; 1; 2; 1],[5], [2; 3; 1; 2; 1; 6], [1; 6], [1; 5]};
 

@@ -20,8 +20,8 @@ function parametersTable(Parameters, Kinetics)
 
   kinetics = {{0,'Kinetics'}
               {'GDP Exchange', num2str(Kinetics.kgdpexchange)},
-              {'GTP Hydrolysis', num2str(Kinetics.indGtpaseRate)},
-              {'Affinity Switch', num2str(Kinetics.kswitch)}};
+              {'GTP Hydrolysis', num2str(Kinetics.khyd)},
+              {'Affinity Switch', num2str(Kinetics.knuc)}};
 
 
   f = fopen('lib/export/output/parametersTable1.html', 'w+');

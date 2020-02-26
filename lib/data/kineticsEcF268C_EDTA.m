@@ -16,7 +16,7 @@ function Kinetics = kineticsEcF268C()
   Kinetics.kcapoffpf = 0.1; 
   Kinetics.kcapoffpfgdp = 10;
 
-  Kinetics.indGtpaseRate = 0;
+  Kinetics.khyd = 0;
   Kinetics.kgdpexchange = 0.4;
-  Kinetics.kswitch = 10000;
+  Kinetics.knuc = 10000;
 end

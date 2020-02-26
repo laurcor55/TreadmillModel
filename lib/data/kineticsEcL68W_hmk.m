@@ -16,7 +16,7 @@ function Kinetics = kineticsEcL68W_hmk()
   Kinetics.kcapoffpf = 0.1; 
   Kinetics.kcapoffpfgdp = 10;
 
-  Kinetics.indGtpaseRate = 0.2;
+  Kinetics.khyd = 0.2;
   Kinetics.kgdpexchange = 0.7;
-  Kinetics.kswitch = 10;
+  Kinetics.knuc = 10;
 end

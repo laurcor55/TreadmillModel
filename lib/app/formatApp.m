@@ -3,11 +3,11 @@ function app = formatApp(app)
   darkGreen = [53 161 19]./255;
   gray = [50 50 50]./255;
 
-  app.Figure = figure('MenuBar','none','NumberTitle','off','Name','Treadmilling Experiment','Units','pixels','Position',[100, 100, 2000, 1500]);
+  app.Figure = figure('MenuBar','none','NumberTitle','off','Name','Treadmilling Experiment','Units','pixels','Position',[100, 100, 1500, 900]);
   im = imread('ftszDiagram.png');
 
-  %% Model Panel Component
-  app.ModelPanel = uipanel('Parent',app.Figure,'Title','Configure Kinetics','FontSize',14, 'Units', 'pixels', 'Position',[20, 250, 460, 460],'BackgroundColor','w');
+  %% Model Panel Component [2000, 2000, 1500, 1500] [20, 250, 460, 460]
+  app.ModelPanel = uipanel('Parent',app.Figure,'Title','Configure Kinetics','FontSize',14, 'Units', 'normalized', 'Position', [0.02 0.18 0.47 0.8],'BackgroundColor','w');
   % Model Diagram
   app.ModelDiagramAxes = axes('Parent',app.ModelPanel, 'Units', 'normalized', 'Position', [0, 0, 1, 1]);
 
@@ -26,60 +26,27 @@ function app = formatApp(app)
   horFontDisplace = 0;
   
   %%% bottom 
-  leftAlign = 0.05;
-  bottomAlign = 0.15;
-  app.KbOnGtpInput = uicontrol('Parent',app.ModelPanel,'Style','edit','String',app.Kinetics.kbongtp,'Units','normalized','Position',[leftAlign bottomAlign inputWidth height]);
-  text(app.ModelDiagramAxes,'String','\muM^-^1s^-^1','Interpreter','tex','HorizontalAlignment', 'left','VerticalAlignment', 'bottom','Units','normalized','Position',[leftAlign+inputWidth bottomAlign]);
 
-  app.KbOffGtpInput = uicontrol('Parent',app.ModelPanel,'Style','edit','String',app.Kinetics.kboffgtp,'Units','normalized','Position',[leftAlign+rightoffset bottomAlign-loweroffset inputWidth height]);
-  text(app.ModelDiagramAxes,'String','s^-^1','Interpreter','tex','Units','normalized','HorizontalAlignment',  'left','VerticalAlignment', 'bottom','Position',[leftAlign+rightoffset+inputWidth bottomAlign-loweroffset]);
+  addKinetic(app, 'kbongtp', [0.01, 0.14], 2);
+  addKinetic(app, 'kboffgtp', [0.18, 0.08], 1);
 
-
-  leftAlign = 0.5;
-  bottomAlign = 0.15;
-  app.KbOnGdpInput = uicontrol('Parent',app.ModelPanel,'Style','edit','String',app.Kinetics.kbongdp,'Units','normalized','Position',[leftAlign bottomAlign inputWidth height]);
-  text(app.ModelDiagramAxes,'String','\muM^-^1s^-^1','Interpreter','tex','HorizontalAlignment', 'left','VerticalAlignment', 'bottom','Units','normalized','Position',[leftAlign+inputWidth bottomAlign]);
-
-  app.KbOffGdpInput = uicontrol('Parent',app.ModelPanel,'Style','edit','String',app.Kinetics.kboffgdp,'Units','normalized','Position',[leftAlign+rightoffset bottomAlign-loweroffset inputWidth height]);
-  text(app.ModelDiagramAxes,'String','s^-^1','Interpreter','tex','HorizontalAlignment', 'left','VerticalAlignment', 'bottom','Units','normalized','Position',[leftAlign+rightoffset+inputWidth bottomAlign-loweroffset]);
+  addKinetic(app, 'kbongdp', [0.45, 0.14], 2);
+  addKinetic(app, 'kboffgdp', [0.62, 0.08], 1);
 
 
-  leftAlign = 0.6;
-  bottomAlign = 0.65;
-  app.KtOnInput = uicontrol('Parent',app.ModelPanel,'Style','edit','String',app.Kinetics.ktongdp,'Units','normalized','Position',[leftAlign bottomAlign inputWidth height]);
-  text(app.ModelDiagramAxes,'String','\muM^-^1s^-^1','Interpreter','tex','HorizontalAlignment', 'left','VerticalAlignment', 'bottom','Units','normalized','Position',[leftAlign+inputWidth bottomAlign]);
+  addKinetic(app, 'ktongdp', [0.57, 0.65], 2);
+  addKinetic(app, 'ktoffgdp', [0.74, 0.59], 1);
 
-  app.KtOffInput = uicontrol('Parent',app.ModelPanel,'Style','edit','String',app.Kinetics.ktoffgdp,'Units','normalized','Position',[leftAlign+rightoffset bottomAlign-loweroffset inputWidth height]);
-  text(app.ModelDiagramAxes,'String','s^-^1','Interpreter','tex','Units','normalized','HorizontalAlignment', 'left','VerticalAlignment', 'bottom','Position',[leftAlign+rightoffset+inputWidth bottomAlign-loweroffset]);
+  addKinetic(app, 'ktongtp', [0.15, 0.65], 2);
+  addKinetic(app, 'ktoffgtp', [0.32, 0.59], 1);
 
 
-
-  leftAlign = 0.2;
-  bottomAlign = 0.65;
-  app.KtLowOnInput = uicontrol('Parent',app.ModelPanel,'Style','edit','String',app.Kinetics.ktongtp,'Units','normalized','Position',[leftAlign bottomAlign inputWidth height]);
-  text(app.ModelDiagramAxes,'String','\muM^-^1s^-^1','Interpreter','tex','HorizontalAlignment', 'left','VerticalAlignment', 'bottom','Units','normalized','Position',[leftAlign+inputWidth bottomAlign]);
-
-  app.KtLowOffInput = uicontrol('Parent',app.ModelPanel,'Style','edit','String',app.Kinetics.ktoffgtp,'Units','normalized','Position',[leftAlign+rightoffset bottomAlign-loweroffset inputWidth height]);
-  text(app.ModelDiagramAxes,'String','s^-^1','Interpreter','tex','Units','normalized','HorizontalAlignment', 'left','VerticalAlignment', 'bottom','Position',[leftAlign+rightoffset+inputWidth bottomAlign-loweroffset]);
+  addKinetic(app, 'kgdpexchange', [0.18, 0.91], 1);
+  addKinetic(app, 'khyd', [0.43, 0.43], 1);
+  addKinetic(app, 'knuc', [0.35, 0.91], 0);
 
 
-
-  leftAlign = 0.35;
-  bottomAlign = 0.93;
-  app.kswitchInput = uicontrol('Parent',app.ModelPanel,'Style','edit','String',app.Kinetics.kswitch,'Units','normalized','Position',[leftAlign bottomAlign inputWidth*2 height]);
-  text(app.ModelDiagramAxes,'String','X','Interpreter','tex','Units','normalized','HorizontalAlignment', 'left','VerticalAlignment', 'bottom','Position',[leftAlign+inputWidth*2 bottomAlign]);
-
-  leftAlign = 0.2;
-  bottomAlign = 0.93;
-  app.kgdpexchangeInput = uicontrol('Parent',app.ModelPanel,'Style','edit','String',app.Kinetics.kgdpexchange,'Units','normalized','Position',[leftAlign bottomAlign inputWidth height]);
-  text(app.ModelDiagramAxes,'String','s^-^1','Interpreter','tex','Units','normalized','HorizontalAlignment', 'left','VerticalAlignment', 'bottom','Position',[leftAlign+inputWidth bottomAlign]);
-
-
-  leftAlign = 0.45;
-  bottomAlign = 0.45;
-  app.GTPaseInput = uicontrol('Parent',app.ModelPanel,'Style','edit','String',app.Kinetics.indGtpaseRate,'Units','normalized','Position',[leftAlign bottomAlign inputWidth height]);
-  text(app.ModelDiagramAxes,'String','s^-^1','Interpreter','tex','Units','normalized','Position',[leftAlign+inputWidth+horFontDisplace bottomAlign+vertFontDisplace]);
-
+  %set(app.ModelPanel, 'Units', 'normalized');
   %% Input Panel Components
   app.InputPanel = uipanel('Parent',app.Figure,'Title','Configure Experiment','FontSize',14,'Position',[0.02 0.02 0.47 0.15],'BackgroundColor','w');
   app.InputAxes = axes('Parent',app.InputPanel,'Units','normalized','Position',[0 0 1 1]);

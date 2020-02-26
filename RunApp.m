@@ -9,19 +9,19 @@ classdef RunApp < handle
         ModelPanel;
         ModelDiagramAxes;
 
-        KbOnGtpInput;
-        KbOffGtpInput;
-        KbOnGdpInput;
-        KbOffGdpInput;
+        kbongtpInput;
+        kboffgtpInput;
+        kbongdpInput;
+        kboffgdpInput;
 
-        KtOnInput;
-        KtOffInput;
-        KtLowOnInput;
-        KtLowOffInput;
+        ktongdpInput;
+        ktoffgdpInput;
+        ktongtpInput;
+        ktoffgtpInput;
         
-        kswitchInput;
+        knucInput;
         kgdpexchangeInput;
-        GTPaseInput;
+        khydInput;
         MixingButton;
         DisassemblyButton;
 

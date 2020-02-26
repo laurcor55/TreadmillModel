@@ -16,7 +16,7 @@ function Kinetics = kineticsBs2()
   Kinetics.kcapoffpf = 0.1; 
   Kinetics.kcapoffpfgdp = 1;
 
-  Kinetics.indGtpaseRate = 0.5;
+  Kinetics.khyd = 0.5;
   Kinetics.kgdpexchange = 1;
-  Kinetics.kswitch = 30000;
+  Kinetics.knuc = 30000;
 end

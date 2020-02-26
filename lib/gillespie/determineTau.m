@@ -60,12 +60,12 @@ function [allProbs, tau, Subunits] = determineTau(Subunits, allPfs, Kinetics);
   num = 6;
   reactant1(num) = totalGTPinPF;
   reactant2(num) = 1;
-  kinetic(num) = Kinetics.indGtpaseRate;
+  kinetic(num) = Kinetics.khyd;
 
   % Nucleate new PF
   num = 7;
   reactant1(num) = Subunits.monomerNum;
-  reactant2(num) =  Subunits.monomerNum./(1+Kinetics.kswitch); %%%%% CHANGE HERE %%%%%%
+  reactant2(num) =  Subunits.monomerNum./(1+Kinetics.knuc); %%%%% CHANGE HERE %%%%%%
   kinetic(num) = secondOrderConverter(Kinetics.kbongtp);
 
   % Top off PF with GDP penultimate
@@ -95,7 +95,7 @@ function [allProbs, tau, Subunits] = determineTau(Subunits, allPfs, Kinetics);
   % Nucleate new PF with MciZ dimer
   num = 12;
   reactant1(num) = Subunits.capDimerNum;
-  reactant2(num) =  Subunits.monomerNum/(1+Kinetics.kswitch); %%%%% CHANGE HERE %%%%%%
+  reactant2(num) =  Subunits.monomerNum/(1+Kinetics.knuc); %%%%% CHANGE HERE %%%%%%
   kinetic(num) = secondOrderConverter(Kinetics.kcaponpf);
 
   % Bottom off PF GDP
@@ -119,7 +119,7 @@ function [allProbs, tau, Subunits] = determineTau(Subunits, allPfs, Kinetics);
   % Nucleate new PF with MciZ dimer high affinity
   num = 16;
   reactant1(num) = Subunits.monomerNum;
-  reactant2(num) =  Subunits.capDimerNum/(1+Kinetics.kswitch); %%%%% CHANGE HERE %%%%%%
+  reactant2(num) =  Subunits.capDimerNum/(1+Kinetics.knuc); %%%%% CHANGE HERE %%%%%%
   kinetic(num) =  secondOrderConverter(Kinetics.ktongtp);
 
   allProbs = reactant1.*reactant2.*kinetic;
