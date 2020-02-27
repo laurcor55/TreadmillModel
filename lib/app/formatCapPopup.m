@@ -10,34 +10,15 @@ function app = formatCapPopup(app)
   app.CapAxes = axes('Parent',app.CapFigure,'Units','normalized','Position',[0 0 1 1]);
   imshow(capDiagram);
 
-  bottomAlign = 0.1;
-  leftAlign = 0.4;
-  app.concCapInput = uicontrol('Parent',app.CapFigure,'Style','edit','String',app.Parameters.concCap,'Units','normalized','Position',[leftAlign bottomAlign inputWidth height]);
-  text(app.CapAxes,'String','[Cap] (\muM):','Interpreter','tex','Units','normalized','Position',[leftAlign-0.09 bottomAlign+vertFontDisplace]);
+  addParameterCap(app, 'concCap', [0.05, 0.5], 2);
 
-  bottomAlign = 0.2;
-  leftAlign = 0.07;
-  app.capKdInput = uicontrol('Parent',app.CapFigure,'Style','edit','String',app.Kinetics.capKd,'Units','normalized','Position',[leftAlign bottomAlign inputWidth height]);
-  text(app.CapAxes,'String','\muM^-^1','Interpreter','tex','Units','normalized','Position',[leftAlign+inputWidth+horFontDisplace bottomAlign+vertFontDisplace]);
+  addKineticCap(app, 'capKd', [0.23, 0.3], 0)
+  addKineticCap(app, 'kcaponpf', [0.35, 0.45], 2);
+  addKineticCap(app, 'kcapoffpf', [0.5, 0.35], 1);
+  addKineticCap(app, 'kcapoffpfgdp', [0.8, 0.35], 1);
 
-  bottomAlign = 0.3;
-  leftAlign = 0.25;
-  app.kcaponpfInput = uicontrol('Parent',app.CapFigure,'Style','edit','String',app.Kinetics.kcaponpf,'Units','normalized','Position',[leftAlign bottomAlign inputWidth height]);
-  text(app.CapAxes,'String','\muM^-^1 s^-^1','Interpreter','tex','Units','normalized','Position',[leftAlign+inputWidth+horFontDisplace bottomAlign+vertFontDisplace]);
-
-  bottomAlign = 0.19;
-  leftAlign = 0.27;
-  app.kcapoffpfInput = uicontrol('Parent',app.CapFigure,'Style','edit','String',app.Kinetics.kcapoffpf,'Units','normalized','Position',[leftAlign bottomAlign inputWidth height]);
-  text(app.CapAxes,'String','s^-^1','Interpreter','tex','Units','normalized','Position',[leftAlign+inputWidth+horFontDisplace bottomAlign+vertFontDisplace]);
-  
-  
-  bottomAlign = 0.05;
-  leftAlign = 0.27;
-  app.kcapoffpfgdpInput = uicontrol('Parent',app.CapFigure,'Style','edit','String',app.Kinetics.kcapoffpfgdp,'Units','normalized','Position',[leftAlign bottomAlign inputWidth height]);
-  text(app.CapAxes,'String','s^-^1','Interpreter','tex','Units','normalized','Position',[leftAlign+inputWidth+horFontDisplace bottomAlign+vertFontDisplace]);
-  
   
   colors = protocolormap;
-  app.ApplyCapKinetics = uicontrol('Parent',app.CapFigure,'Style','pushbutton','String','Apply','BackgroundColor',colors(6,:),'ForegroundColor','w','Units','normalized','Position',[0.82 0.03 0.15 0.07],'Callback',@app.applyKinetics);
+  uicontrol('Parent',app.CapFigure,'Style','pushbutton','String','Apply','BackgroundColor',colors(6,:),'ForegroundColor','w','Units','normalized','Position',[0.82 0.03 0.15 0.07],'Callback',@app.capApplyKinetics);
 
 end

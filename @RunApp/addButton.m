@@ -1,4 +1,4 @@
-function app = addButton(app, buttonName, label, location, style, callback)
+function addButton(app, buttonName, label, location, style, callback)
   
   lightGreen = [0 64 224]./255;
   darkGreen = [53 161 19]./255;
