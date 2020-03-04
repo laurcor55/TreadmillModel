@@ -79,7 +79,7 @@ classdef RunApp < handle
 
     methods
         function app = RunApp;
-          addpath('lib', 'lib/analysis', 'lib/app','lib/data', 'lib/dependencies', 'lib/gillespie', 'lib/export', 'media')
+          addpath('lib', 'lib/analysis', 'lib/data', 'lib/dependencies', 'lib/gillespie', 'lib/export', 'media')
           addpath('media')
           app.Parameters = parameters();
           app.Kinetics = kineticsBs();
@@ -89,7 +89,7 @@ classdef RunApp < handle
        
 
         function editDisassembly(app,hObject,eventdata)
-          app = formatDisassemblyPopup(app);
+          disassemblyFormatPopup(app);
         end
 
         function startExperiment(app,hObject,eventdata)
