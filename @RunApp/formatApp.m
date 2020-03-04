@@ -36,19 +36,19 @@ function app = formatApp(app)
   set(app.InputAxes,'TickLength',[0,0]);
 
 
-  addParameter(app, 'concTotalFtsZ', [0.66, 0.75], 2);
-  addParameter(app, 'totalTime', [0.66, 0.5], 1);
+  app.addParameter('concTotalFtsZ', [0.66, 0.75], 2);
+  app.addParameter('totalTime', [0.66, 0.5], 1);
 
-  addButton(app, 'runButton', 'Run', [0.66, 0.1], 1, @app.startExperiment);
+  app.addButton('runButton', 'Run', [0.66, 0.1], 1, @app.startExperiment);
   
-  addButton(app, 'mixingButton', 'PF Mixing Experiment', [0.05 0.4], 2, @app.editMixing);
-  addButton(app, 'capButton','Add Bottom Cap', [0.05, 0.7], 2, @app.editCap)
-  addButton(app, 'disassemblyButton', 'PF Disassembly Experiment', [0.05, 0.1], 2, @app.editDisassembly)
+  app.addButton('mixingButton', 'PF Mixing Experiment', [0.05 0.4], 2, @app.mixingFormatPopup);
+  app.addButton('capButton','Add Bottom Cap', [0.05, 0.7], 2, @app.capFormatPopup)
+  app.addButton('disassemblyButton', 'PF Disassembly Experiment', [0.05, 0.1], 2, @app.editDisassembly)
 
 
   %% Ouput Panel Components
   outputPanel = uipanel('Parent',app.Figure,'Title','Experimental Results','FontSize',14,'BackgroundColor','w','Position',[0.51 0.02 0.47 0.96]);
-  app.PublishButton = uicontrol('Parent',app.Figure,'String','Export','FontSize',12,'BackgroundColor',lightGreen,'ForegroundColor','w','Units','normalized','Position',[0.52 0.04 0.05 0.04],'Callback',@app.publishResults);
+  app.publishButton = uicontrol('Parent',app.Figure,'String','Export','FontSize',12,'BackgroundColor',lightGreen,'ForegroundColor','w','Units','normalized','Position',[0.52 0.04 0.05 0.04],'Callback',@app.publishResults);
 
   plotsTabGroup = uitabgroup('Parent',outputPanel,'Units','normalized','Position',[0.01, 0.01, 0.98, 0.45]);
   leftAlign = 0.12;

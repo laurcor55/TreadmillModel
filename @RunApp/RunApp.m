@@ -72,9 +72,8 @@ classdef RunApp < handle
         
         CurrentTick;
         Data;
-        PublishButton;
 
-        GTPaseFig;
+        publishButton;
         pfMatrix
     end
 
@@ -87,13 +86,7 @@ classdef RunApp < handle
           app.formatApp();
         end
 
-        function editCap(app,hObject,eventdata)
-          app = formatCapPopup(app);
-        end
-
-        function editMixing(app,hObject,eventdata)
-          app = formatMixingPopup(app);
-        end
+       
 
         function editDisassembly(app,hObject,eventdata)
           app = formatDisassemblyPopup(app);
@@ -102,8 +95,7 @@ classdef RunApp < handle
         function startExperiment(app,hObject,eventdata)
           app = updateKineticsParameters(app); % apply user's parameters
           app.Outputs = runExperiment(app.Parameters, app.Kinetics, true);
-          outputType = 1;
-          app.pfMatrix = plotOutputs(app.Outputs, app.Parameters, app);
+          app.plotOutputs(hObject,eventdata);
         end
 
         function closeApp(app,hObject,eventdata)
@@ -111,13 +103,24 @@ classdef RunApp < handle
           delete(app.CapFigure);
         end
 
+        capFormatPopup(app, hObject, eventdata);
+        capApplyKinetics(app,hObject,eventdata);
+        capAddParameter(app, parameterName, location, units);
+        capAddKinetic(app, kineticName, location, units);
+
+        disassemblyFormatPopup(app, hObject, eventdata);
+
+        mixingFormatPopup(app, hObject, eventdata);
+
         pfMoviePlay(app,hObject,eventdata);
         pfMovieUpdateTime(app,hObject,eventdata);
-        capApplyKinetics(app,hObject,eventdata);
+        
 
-
+        formatApp(app);
+        addParameter(app, parameterName, location, units);
+        addButton(app, buttonName, label, location, style, callback);
+        plotOutputs(app,hObject,eventdata);
         publishResults(app,hObject,eventdata);
-
         
 
     end
