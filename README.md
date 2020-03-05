@@ -37,6 +37,7 @@ The bottom output panel can be toggled between Assembly, GTP turnover, etc., by 
 ![alt text](media/exportExample.png "Export Example")
 
 
+## Configuring Experiments
 The app can be configured to simulate bottom cappers, PF mixing, and PF disassembly. 
 
 ### Add Bottom Cap
