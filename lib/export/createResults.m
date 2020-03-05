@@ -19,7 +19,7 @@ function createResults(Parameters, Kinetics, Outputs, fileExtension)
   f1.PaperPosition = [0 0 8 8];
   fileNameNew = strcat('lib/export/output', fileExtension, '.html');
   copyfile('lib/export/output.html', fileNameNew)
-  saveas(f1, strcat('lib/export/output/output', fileExtension, '.png'));
+  saveas(f1,'lib/export/output/output.png');
   close(f1);
 
 

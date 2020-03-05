@@ -1,5 +1,5 @@
 function publishResults(app,hObject,eventdata)
-  fileExtension = num2str(floor(now()));
+  fileExtension = num2str(floor(rand()*1000));
   createResults(app.Parameters, app.Kinetics, app.Outputs, fileExtension);
   %set(app.Figure, 'Visible', 'off');
   %open('lib/export/output.html');
