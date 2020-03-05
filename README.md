@@ -34,6 +34,9 @@ The output panel will show the final array of PFs in the top window. Each vertic
 
 The bottom output panel can be toggled between Assembly, GTP turnover, etc., by clicking on the bar. To obtain a summary of input and output, click the **Export** button. This will save the file `output.html` in the `lib/export/` folder, path indicated on the screen. This can be opened in a browser. To save this file, copy and paste the file name into your web browser. Save or print it here. The next **Export** will write over the `lib/export/output.html` file. 
 
+![alt text](media/exportExample.png "Export Example")
+
+
 The app can be configured to simulate bottom cappers, PF mixing, and PF disassembly. 
 
 ### Add Bottom Cap
@@ -50,10 +53,3 @@ To undo adding a PF mixing experiment, click the **PF Mixing Experiment** button
 To simulate PF mixing, click the gray **PF Disassembly Experiment** button. In the small popup, add a numeric time value in seconds. Click **OK**, then **Run**. 
 
 To undo adding a PF disassembly experiment, click the **PF Disassembly Experiment** button, and click **Cancel** in the popup. 
-
-## Navigating App Results
-After running an experiment, the results appear in the two panels on the right side of the app. Users can play a video of the PFs at the top. Users can see summary plots and a table with the tabs at the bottom. 
-
-To export results, click the blue **Export** button on the bottom. Figures will be created and automatically close. To view these, open a web browser and paste the link provided in the popup. Save or print this as a normal web page. 
-
-![alt text](media/exportExample.png "Export Example")
