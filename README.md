@@ -3,7 +3,7 @@ TreadmillModel is a matlab program for FtsZ treadmilling, nucleation and GTP hyd
 
 ## Installation and Use
 For users with access to matlab. 
-1. Install matlab from [MathWorks](mathworks.com). Follow download instructions provided by installer. Skip this step if you already have matlab.
+1. Install matlab from [MathWorks](https://www.mathworks.com/). Follow download instructions provided by installer. Skip this step if you already have matlab.
 2. In web browser, visit [GitHub repository](https://github.com/laurcor55/TreadmillModel). Click 'Clone or Download' and 'Download Zip'. Unzip folder and move to Documents/MATLAB directory.
 3. Open matlab and navigate to the TreadmillModel-master directory with either `cd TreadmillModel-master` or with the file path navigation bar. 
 4. Run app by typing `RunApp` and enter command window. 
