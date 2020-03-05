@@ -32,7 +32,7 @@ The left panel of the screen gives the input parameters, and the right panel sho
 
 The output panel will show the final array of PFs in the top window. Each vertical line is a PF, with length shown on the y axis. GTP is red and GDP is orange. User can reply this as a movie by clicking **Play**, and can **Pause** at any point. 
 
-The bottom output panel can be toggled between Assembly, GTP turnover, etc., by clicking on the bar. To obtain a summary of input and output, click the **Export** button. This will save the file `output.html` in the `lib/export/` folder, path indicated on the screen. This can be opened in a browser. To save this file, copy and paste the file name into your web browser. Save or print it here. The next **Export** will write over the `lib/export/output.html` file. 
+The bottom output panel can be toggled between Assembly, GTP turnover, etc., by clicking on the bar. To obtain a summary of input and output, click the **Export** button. This will save the file `output####.html` (#### is an identification number) in the `lib/export/` folder, path indicated on the screen. This can be opened in a browser. To save this file, copy and paste the file name into your web browser. Save or print it here. 
 
 ![alt text](media/exportExample.png "Export Example")
 

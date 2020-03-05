@@ -1,4 +1,4 @@
-function createResults(Parameters, Kinetics, Outputs)
+function createResults(Parameters, Kinetics, Outputs, fileExtension)
   f1 = figure;
   len = 3;
   wid = 2;
@@ -17,8 +17,9 @@ function createResults(Parameters, Kinetics, Outputs)
 
   f1.PaperUnits = 'inches';
   f1.PaperPosition = [0 0 8 8];
-
-  saveas(f1, 'lib/export/output/output1.png');
+  fileNameNew = strcat('lib/export/output', fileExtension, '.html');
+  copyfile('lib/export/output.html', fileNameNew)
+  saveas(f1, strcat('lib/export/output/output', fileExtension, '.png'));
   close(f1);
 
 
