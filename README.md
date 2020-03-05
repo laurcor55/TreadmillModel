@@ -19,7 +19,7 @@ Then, users select **TreadmillModel-master** folder.
 ![alt text](media/matlabCdExample2.png "cd Example")
 
 
-4. Run app by typing `RunApp` and enter command window. 
+4. Run app by typing `RunApp` in command window and press **Enter** on the keyboard. 
 
 ![alt text](media/runAppExample.png "RunApp Example")
 
