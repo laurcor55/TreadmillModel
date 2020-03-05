@@ -8,7 +8,7 @@ function parametersTable(Parameters, Kinetics)
   parameters = {{0,'Parameters'},
                {'Time', num2str(Parameters.totalTime)},
                {'[FtsZ]', num2str(Parameters.concTotalFtsZ)},
-               {'FRET Experiment?', mixPfsString},
+               {'PF Mixing Experiment?', mixPfsString},
                {'[Cap]', num2str(Parameters.concCap)}};
   kineticsPf = {{0, 'Kinetics', 0}, 
               {'Penultimate Subunit', 'GDP', 'GTP'}, 
