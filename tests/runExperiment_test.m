@@ -7,7 +7,7 @@ Kinetics = kinetics();
 Parameters = parameters();
   Parameters.totalTime = 60;
   Parameters.concTotalFtsZ = 3;
-  Parameters.concCap = 0.1;
+  Parameters.concCap = 1;
   Parameters.mixPFs = 0;
 
 ftszBefore = round(conc2num(Parameters.concTotalFtsZ));
@@ -31,7 +31,5 @@ capAfter = capBottom + conc2num(Outputs.capDimerConc(end) + Outputs.capMonomerCo
 conc2num(Outputs.pfFtszConc(end));
 
 assert(abs(conc2num(Outputs.pfFtszConc(end))-pfFtsz)<2)
-ftszAfter
-ftszBefore
 assert(abs(ftszAfter-ftszBefore)<2)
 assert(abs(capBefore-capAfter)<2)

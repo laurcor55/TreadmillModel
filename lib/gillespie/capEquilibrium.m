@@ -5,11 +5,8 @@ function Subunits = capEquilibrium(Subunits, Kinetics)
 
   capMonomer = 1/2*(capTot - Kd + sqrt(4*capTot*Kd + (capTot - Kd -ftszTot).^2) - ftszTot);
 
-  if (capTot - capMonomer > 0)
-    Subunits.capMonomerNum = round(capMonomer);
-    Subunits.capDimerNum = capTot - Subunits.capMonomerNum;
-    Subunits.monomerNum = ftszTot - Subunits.capDimerNum;
-  else
-    Subunits.capDimerNum = 0;
-  end
+  Subunits.capMonomerNum = round(capMonomer);
+  Subunits.capDimerNum = capTot - Subunits.capMonomerNum;
+  Subunits.monomerNum = ftszTot - Subunits.capDimerNum;
+
 end

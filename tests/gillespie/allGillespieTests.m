@@ -73,7 +73,7 @@ end
 expected = samples.*0.05;
 for ii=1:length(h)
   if (h(ii)>(expected+2))
-    fprintf('Check test: %d (%d of %d)\n', ii, h(ii), expected);
+    fprintf('Check staticially questionable test: %d (%d of %d)\n', ii, h(ii), expected);
   end
 end
 fprintf('Tests complete.\n')

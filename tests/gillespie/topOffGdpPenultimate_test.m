@@ -40,8 +40,8 @@ function h = topOffGdpPenultimate_test
           assert(sum(allPFsAfter{ii})==0);
           assert(Subunits.gdpMonomerNum == 10);
           assert(Subunits.monomerNum == 11);
-          assert(Subunits.capDimerNum == 10);
-          assert(Subunits.capMonomerNum == 11);
+          assert(Subunits.capDimerNum == 11);
+          assert(Subunits.capMonomerNum == 10);
         end
         if (ii==4 || ii==10)
           assert(gdpOffCount==1)

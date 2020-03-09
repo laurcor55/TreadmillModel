@@ -55,8 +55,8 @@ function h = topOffGtpPenultimate_test
         else
           assert(Subunits.gdpMonomerNum == 10);
           assert(Subunits.monomerNum == 11);
-          assert(Subunits.capDimerNum == 10);
-          assert(Subunits.capMonomerNum == 11);
+          assert(Subunits.capDimerNum == 11);
+          assert(Subunits.capMonomerNum == 10);
           assert(sum(allPFsAfter{ii})==0);
           assert(gdpOffCount==0);
 

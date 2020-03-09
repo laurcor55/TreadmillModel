@@ -4,6 +4,5 @@ function [allPfs, pfLocations, Subunits] = nucleation(allPfs, pfLocations, Subun
   allPfs{len+1} = addedPFs;
   pfLocations = [pfLocations 0];
 
-  Subunits.monomerNum = Subunits.monomerNum - 2; %%%%% CHANGE HERE %%%%%%
-  Subunits.highMonomerNum = Subunits.highMonomerNum - 0;
+  Subunits.monomerNum = Subunits.monomerNum - 2; 
 end

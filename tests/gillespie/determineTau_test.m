@@ -43,7 +43,7 @@ allProbsGoal(4) = 3.*8.*secondOrderConverter(10); % Bottom on GTP
 allProbsGoal(5) = 7.*5; % GDP exchange monomer
 
 allProbsGoal(6) = 12.*0.5; % GTPase
-allProbsGoal(7) = 8/(1+5000).*8.*secondOrderConverter(10+4); % Nucleation
+allProbsGoal(7) = 8/(1+5000).*8.*secondOrderConverter(10); % Nucleation
 
 allProbsGoal(8) = 5.*8; % Top off GDP penultimate
 allProbsGoal(9) = 4.*0.1; % Top off GTP penultimate

@@ -19,8 +19,8 @@ for ii=1:length(allPFs)
     assert(pf(jj)==pfGoal(jj));
   end
 end
-assert(Subunits.capDimerNum == 10);
-assert(Subunits.capMonomerNum == 11);
+assert(Subunits.capDimerNum == 11);
+assert(Subunits.capMonomerNum == 10);
 assert(Subunits.gdpMonomerNum == 10);
 assert(Subunits.monomerNum == 13);
 assert(Subunits.highMonomerNum == 10);

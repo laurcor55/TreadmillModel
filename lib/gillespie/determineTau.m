@@ -1,5 +1,4 @@
 function [allProbs, tau, Subunits] = determineTau(Subunits, allPfs, Kinetics);
-  Subunits = capEquilibrium(Subunits, Kinetics);
   
   
   totalGTPinPF = sum(countPfGtp(allPfs));
@@ -36,7 +35,7 @@ function [allProbs, tau, Subunits] = determineTau(Subunits, allPfs, Kinetics);
   reactant1(num) = Subunits.capDimerNum;
   reactant2(num) = gtpBottomNum;
   kinetic(num) =  secondOrderConverter(Kinetics.kcaponpf);
-
+  
 
   % Bottom off PF GTP
   num = 3;

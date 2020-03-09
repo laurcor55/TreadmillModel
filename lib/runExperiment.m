@@ -20,6 +20,7 @@ function Outputs = runExperiment(Parameters, Kinetics, popup)
     % Repeat this until iterated through entire time
     while (currentTime < roundTime) 
       gtpColor = gtpColorAssign(roundCount); % Assigns a "color" identifier to FtsZ. Important in pf mixing experiment
+      Subunits = capEquilibrium(Subunits, Kinetics);
       
       %%%%% GILLESPIE ALGORITHM %%%%%
       [eventProbabilities, tau, Subunits] = determineTau(Subunits, allPfs, Kinetics); % Determines time step and relative probabilities of each reaction

@@ -37,6 +37,7 @@ for ii=1:2
   fprintf('iteration %d\n',ii)
   
   cellsTo3DMatrix_test;
+  gdpProportion_test;
   hydrolysisRate_test;
   mixingKineticsPlot_test;
   pfLengthFinal_test;

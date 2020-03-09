@@ -4,6 +4,6 @@ function [allPfs, pfLocations, Subunits] = nucleationCap(allPfs, pfLocations, Su
   allPfs{len+1} = addedPFs;
   pfLocations = [pfLocations 0];
 
-  Subunits.capMonomerNum = Subunits.capMonomerNum - 1;
-  Subunits.monomerNum = Subunits.monomerNum - 2;
+  Subunits.capDimerNum = Subunits.capDimerNum - 1;
+  Subunits.monomerNum = Subunits.monomerNum - 1;
 end

@@ -35,9 +35,9 @@ assert(length(allPFLocationAfter)==length(allPFLocationBefore)+1);
 
 
 assert(Subunits.gdpMonomerNum == 10);
-assert(Subunits.monomerNum == 8);
+assert(Subunits.monomerNum == 9);
 assert(Subunits.highMonomerNum == 10);
-assert(Subunits.capDimerNum == 10);
-assert(Subunits.capMonomerNum == 9);
+assert(Subunits.capDimerNum == 9);
+assert(Subunits.capMonomerNum == 10);
 
 assert(badDifferences == 0);
