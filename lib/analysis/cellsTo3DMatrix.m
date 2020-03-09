@@ -34,7 +34,7 @@ function matrixPFSnapshots = cellsTo3DMatrix(cellPF,cellLocation)
       topInd = topLocations{ii}(jj);
       bottomInd = bottomLocations{ii}(jj);
       if (isPf(cellPF{ii}{jj}))
-        matrixPFSnapshots(topInd:bottomInd, jj, ii) = cellPF{ii}{jj};
+        matrixPFSnapshots(topInd:bottomInd, jj, ii) = int8(cellPF{ii}{jj});
       end
     end
   end

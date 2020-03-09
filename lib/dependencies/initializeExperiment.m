@@ -9,5 +9,5 @@ function [Subunits, totalRounds, collectSampleStep] = initializeExeperiment(Para
   end
   
   collectSampleStep = round(Parameters.totalTime); % Determines how often collect output data.
-
+  
 end
