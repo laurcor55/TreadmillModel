@@ -63,7 +63,7 @@ function Outputs = runExperiment(Parameters, Kinetics, popup)
         case 17 % PF Annealing
           allPfs = anneal(allPfs);
         case 18 % PF Fragmentation
-          [allPfs, pfLocations] = fragmentation(allPfs, pfLocations);
+          [allPfs, pfLocations] = fragment(allPfs, pfLocations);
         end
       
       % Housekeeping, done every so often

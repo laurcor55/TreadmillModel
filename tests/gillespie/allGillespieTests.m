@@ -34,12 +34,13 @@ end
 fprintf('\n');
 
 fprintf('Running Gillespie tests...\n')
-h = zeros(1, 16);
+h = zeros(1, 17);
 
 samples = 100;
 
 for ii=1:samples
   rng('shuffle')
+
   %fprintf('iteration %d\n',ii)
 
   h(16) = anneal_test + h(16);
@@ -59,6 +60,8 @@ for ii=1:samples
   determineTau_test;
 
   exchangeMonomerGdp_test;
+  h(17) = fragment_test + h(17);
+
 
   h(10) = hydrolysis_test + h(10);
   nucleation_test;

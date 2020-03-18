@@ -1,4 +1,4 @@
-function [allPfs, pfLocations] = fragmentation(allPfs, pfLocations)
+function [allPfs, pfLocations] = fragment(allPfs, pfLocations)
   totalGTP = 0;
   pfGdp= countPfGdp(allPfs);
   
@@ -10,8 +10,10 @@ function [allPfs, pfLocations] = fragmentation(allPfs, pfLocations)
   lessThanInd = find(r<sumNormPfGdp);
   fragmentedPfInd = lessThanInd(1);
   pf = allPfs{fragmentedPfInd};
-  gdpInd = [find(pf == 1); find(pf == 3); find(pf == 5)];
-  interfaceSubunitInd = gdpInd(ceil(rand.*(length(gdpInd))));
+  pfInternal = pf(3:end-1);
+
+  gdpInd = [find(pfInternal == 1); find(pfInternal == 3); find(pfInternal == 5)];
+  interfaceSubunitInd = gdpInd(ceil(rand.*(length(gdpInd))))+2;
   allPfs{fragmentedPfInd} = pf(1:interfaceSubunitInd);
   allPfs{length(allPfs)+1} = pf(interfaceSubunitInd+1:end);
   pfLocations = [pfLocations 0];

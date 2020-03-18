@@ -13,7 +13,8 @@ Kinetics.capKd = 13;
 Kinetics.kcaponpf = 5.3;
 Kinetics.kcapoffpf = 2;
 Kinetics.kcapoffpfgdp = 4;
-
+Kinetics.kanneal = 2;
+Kinetics.kfragment = 3.1;
 
 
 
@@ -30,7 +31,7 @@ Subunits.monomerNum = 8;
 
 [allProbs, tau] = determineTau(Subunits, allPFs, Kinetics);
 
-allProbsGoal = zeros(1, 17);
+allProbsGoal = zeros(1, 18);
 
 allProbsGoal(1) = 2.*2; % Cap dimer off pf
 allProbsGoal(2) = 3.*5.*secondOrderConverter(5.3); % Cap dimer on pf
@@ -58,8 +59,8 @@ allProbsGoal(14) = 1.*8.*secondOrderConverter(14); % Bottom on GDP
 allProbsGoal(15) = 4.*3;
 allProbsGoal(16) = 8.*5./(1+5000).*secondOrderConverter(4);
 
-allProbsGoal(17) = 3.*4.*secondOrderConverter(0.1);
-
+allProbsGoal(17) = 3.*3.*secondOrderConverter(2);
+allProbsGoal(18) = 4.*1.*3.1;
 
 
 for ii=1:length(allProbs)

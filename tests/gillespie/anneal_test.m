@@ -8,9 +8,6 @@ function h = anneal_test
   observedBottom = zeros(size(possibleBottom));
   observedTop = zeros(size(possibleTop));
 
-  
-
-
   for repeat = 1:100
 
     pfBottomFound = 0;
@@ -39,7 +36,6 @@ function h = anneal_test
 
     assert(pfBottomFound==1);
     assert(pfTopFound==1);
-
 
   end
 
