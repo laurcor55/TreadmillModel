@@ -30,7 +30,7 @@ function app = formatApp(app)
   addKinetic(app, 'knuc', [0.35, 0.91], 0);
 
   addKinetic(app, 'kanneal', [0.43, 0.5], 4);
-  addKinetic(app, 'kfragment', [0.43, 0.55], 2);
+  addKinetic(app, 'kfragment', [0.43, 0.55], 3);
 
   %set(app.modelPanel, 'Units', 'normalized');
   %% Input Panel Components

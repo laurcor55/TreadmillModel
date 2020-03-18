@@ -13,7 +13,7 @@ function addKinetic(app, kineticName, location, units)
   elseif (units==2)
     label = ' \muM^-^1s^-^1';
   elseif (units==3)
-    label = 'frag.';
+    label = 'fragment';
   elseif (units==4)
     label = 'anneal';
   end
