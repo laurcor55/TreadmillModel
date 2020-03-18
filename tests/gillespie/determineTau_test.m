@@ -30,7 +30,7 @@ Subunits.monomerNum = 8;
 
 [allProbs, tau] = determineTau(Subunits, allPFs, Kinetics);
 
-allProbsGoal = zeros(1, 14);
+allProbsGoal = zeros(1, 17);
 
 allProbsGoal(1) = 2.*2; % Cap dimer off pf
 allProbsGoal(2) = 3.*5.*secondOrderConverter(5.3); % Cap dimer on pf
@@ -57,6 +57,10 @@ allProbsGoal(14) = 1.*8.*secondOrderConverter(14); % Bottom on GDP
 
 allProbsGoal(15) = 4.*3;
 allProbsGoal(16) = 8.*5./(1+5000).*secondOrderConverter(4);
+
+allProbsGoal(17) = 3.*4.*secondOrderConverter(0.1);
+
+
 
 for ii=1:length(allProbs)
    assert(abs(allProbs(ii)-allProbsGoal(ii))<0.00001)

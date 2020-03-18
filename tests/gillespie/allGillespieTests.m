@@ -34,7 +34,7 @@ end
 fprintf('\n');
 
 fprintf('Running Gillespie tests...\n')
-h = zeros(1, 15);
+h = zeros(1, 16);
 
 samples = 100;
 
@@ -42,6 +42,7 @@ for ii=1:samples
   rng('shuffle')
   %fprintf('iteration %d\n',ii)
 
+  h(16) = anneal_test + h(16);
   h(1) = bottomOffGtp_test + h(1);
   h(2) = bottomOffGdp_test + h(2);
 

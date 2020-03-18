@@ -8,6 +8,6 @@ function [Subunits, totalRounds, collectSampleStep] = initializeExeperiment(Para
     totalRounds = 1; % Just run one, normal round.
   end
   
-  collectSampleStep = round(Parameters.totalTime); % Determines how often collect output data.
+  collectSampleStep = round(Parameters.totalTime.*10); % Determines how often collect output data.
   
 end

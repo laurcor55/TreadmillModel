@@ -1,7 +1,9 @@
 function [allProbs, tau, Subunits] = determineTau(Subunits, allPfs, Kinetics);
   
   
-  totalGTPinPF = sum(countPfGtp(allPfs));
+  pfGtp = sum(countPfGtp(allPfs));
+  pfGdp = sum(countPfGdp(allPfs));
+
   [gdpPenultimateInd, gtpPenultimateInd] = countPenultimate(allPfs);
   [gdpBottomInd, gtpBottomInd] = countFtszBottom(allPfs);
 
@@ -19,7 +21,7 @@ function [allProbs, tau, Subunits] = determineTau(Subunits, allPfs, Kinetics);
 
   capBottomNum = gdpCapBottomNum + gtpCapBottomNum;
 
-  totalReactions = 16;
+  totalReactions = 18;
   reactant1 = zeros(1,totalReactions);
   reactant2 = zeros(1, totalReactions);
   kinetic = zeros(1, totalReactions);
@@ -57,7 +59,7 @@ function [allProbs, tau, Subunits] = determineTau(Subunits, allPfs, Kinetics);
 
   % GTP hydrolysis in PF
   num = 6;
-  reactant1(num) = totalGTPinPF;
+  reactant1(num) = pfGtp;
   reactant2(num) = 1;
   kinetic(num) = Kinetics.khyd;
 
@@ -120,6 +122,19 @@ function [allProbs, tau, Subunits] = determineTau(Subunits, allPfs, Kinetics);
   reactant1(num) = Subunits.monomerNum;
   reactant2(num) =  Subunits.capDimerNum/(1+Kinetics.knuc); %%%%% CHANGE HERE %%%%%%
   kinetic(num) =  secondOrderConverter(Kinetics.ktongtp);
+
+  % PF annealing
+  num = 17;
+  reactant1(num) = gtpBottomNum;
+  reactant2(num) = gtpPenultimateNum - 1;
+  kinetic(num) =  secondOrderConverter(Kinetics.kanneal);
+
+  % PF fragmentation
+  num = 18;
+  reactant1(num) = pfGdp;
+  reactant2(num) = 1;
+  kinetic(num) =  Kinetics.kfragment;
+
 
   allProbs = reactant1.*reactant2.*kinetic;
 

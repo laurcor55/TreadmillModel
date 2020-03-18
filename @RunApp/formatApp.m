@@ -29,6 +29,9 @@ function app = formatApp(app)
   addKinetic(app, 'khyd', [0.43, 0.43], 1);
   addKinetic(app, 'knuc', [0.35, 0.91], 0);
 
+  addKinetic(app, 'kanneal', [0.43, 0.5], 4);
+  addKinetic(app, 'kfragment', [0.43, 0.55], 2);
+
   %set(app.modelPanel, 'Units', 'normalized');
   %% Input Panel Components
   app.InputPanel = uipanel('Parent',app.Figure,'Title','Configure Experiment','FontSize',14,'Position',[0.02 0.02 0.47 0.15],'BackgroundColor','w');

@@ -21,6 +21,9 @@ classdef RunApp < handle
         knucInput;
         kgdpexchangeInput;
         khydInput;
+
+        kfragmentInput;
+        kannealInput;
         
         
         mixingButton;

@@ -60,8 +60,10 @@ function Outputs = runExperiment(Parameters, Kinetics, popup)
           [allPfs, Subunits, pfLocations, gdpOffCount] = capGdpFtszComplexOffPf(allPfs, Subunits, pfLocations, gdpOffCount);
         case 16 % Nucleate new PF from T state FtsZ:Cap heterodimer and R state monomer
           [allPfs, pfLocations, Subunits] = nucleationCap(allPfs, pfLocations, Subunits, gtpColor);
-        case 20
-          currentTime = roundTime;
+        case 17 % PF Annealing
+          allPfs = anneal(allPfs);
+        case 18 % PF Fragmentation
+          [allPfs, pfLocations] = fragmentation(allPfs, pfLocations);
         end
       
       % Housekeeping, done every so often

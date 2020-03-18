@@ -19,4 +19,7 @@ function Kinetics = kineticsEcL68W()
   Kinetics.khyd = 0.2;
   Kinetics.kgdpexchange = 0.7;
   Kinetics.knuc = 10;
+
+  Kinetics.kanneal = 0.1;
+  Kinetics.kfragment = 0.1;
 end
