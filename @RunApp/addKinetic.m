@@ -13,9 +13,9 @@ function addKinetic(app, kineticName, location, units)
   elseif (units==2)
     label = ' \muM^-^1s^-^1';
   elseif (units==3)
-    label = 'fragment';
+    label = ' fragment';
   elseif (units==4)
-    label = 'anneal';
+    label = ' anneal';
   end
   text(labelAxes,'String', label,'Interpreter','tex','HorizontalAlignment', 'left','VerticalAlignment', 'bottom','Units','normalized','Position',[0, 0]);
 

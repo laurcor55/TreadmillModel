@@ -26,7 +26,7 @@ function app = formatApp(app)
   addKinetic(app, 'ktoffgtp', [0.32, 0.59], 1);
 
   addKinetic(app, 'kgdpexchange', [0.18, 0.91], 1);
-  addKinetic(app, 'khyd', [0.43, 0.43], 1);
+  addKinetic(app, 'khyd', [0.35, 0.25], 1);
   addKinetic(app, 'knuc', [0.35, 0.91], 0);
 
   addKinetic(app, 'kanneal', [0.43, 0.5], 4);
