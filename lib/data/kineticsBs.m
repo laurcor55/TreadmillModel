@@ -1,25 +1,25 @@
 function Kinetics = kineticsBs()
   Kinetics.kbongtp = 10;
-  Kinetics.kboffgtp = 5;
+  Kinetics.kboffgtp = 8;
 
   Kinetics.kbongdp = 10;
-  Kinetics.kboffgdp = 5;
+  Kinetics.kboffgdp = 100;
 
   Kinetics.ktongdp = 0.1; 
-  Kinetics.ktoffgdp = 6.5;
+  Kinetics.ktoffgdp = 7.5;
 
   Kinetics.ktongtp = 1;
-  Kinetics.ktoffgtp = 0.5;      
+  Kinetics.ktoffgtp = 0.8;      
 
   Kinetics.capKd = 0.15;
-  Kinetics.kcaponpf = 1;
-  Kinetics.kcapoffpf = 0.5; 
-  Kinetics.kcapoffpfgdp = 0.5;
+  Kinetics.kcaponpf = 10;
+  Kinetics.kcapoffpf = 8; 
+  Kinetics.kcapoffpfgdp = 100;
 
-  Kinetics.khyd = 0.3;
+  Kinetics.khyd = 0.5;
   Kinetics.kgdpexchange = 1;
-  Kinetics.knuc = 33000;
+  Kinetics.knuc = 10000;
 
   Kinetics.kanneal = 10;
-  Kinetics.kfragment = 0.001;
+  Kinetics.kfragment = 0.0001;
 end
