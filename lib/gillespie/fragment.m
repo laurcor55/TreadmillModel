@@ -14,7 +14,8 @@ function [allPfs, pfLocations] = fragment(allPfs, pfLocations)
 
   gdpInd = [find(pfInternal == 1); find(pfInternal == 3); find(pfInternal == 5)];
   interfaceSubunitInd = gdpInd(ceil(rand.*(length(gdpInd))))+2;
-  allPfs{fragmentedPfInd} = pf(1:interfaceSubunitInd);
-  allPfs{length(allPfs)+1} = pf(interfaceSubunitInd+1:end);
-  pfLocations = [pfLocations 0];
+  allPfs{fragmentedPfInd} = pf(interfaceSubunitInd+1:end);
+  allPfs{length(allPfs)+1} = pf(1:interfaceSubunitInd);
+  pfLocations = [pfLocations pfLocations(fragmentedPfInd)-length(allPfs{fragmentedPfInd})];
+  
 end

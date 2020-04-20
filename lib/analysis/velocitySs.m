@@ -1,5 +1,5 @@
 function meanVelocity = velocitySs(Outputs, ax)
-  [~, ssInd] = min(abs(Outputs.time - (Outputs.time(end) - 5)));
+  [~, ssInd] = min(abs(Outputs.time - (Outputs.time(end) - 15)));
   ssPfs = Outputs.savePfs{ssInd};
   finalPfs = Outputs.savePfs{end};
   ssLocations = Outputs.saveLocations{ssInd};

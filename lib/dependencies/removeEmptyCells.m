@@ -1,5 +1,5 @@
 function [allPFsCrop, allPFLocationCrop] = removeEmptyCells(allPFs, allPFLocation, currentTime, roundTime);
-  if currentTime < roundTime - 6
+  if currentTime < roundTime - 16
 
     pfCount = 0;
     allPFsCrop = {};

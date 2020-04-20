@@ -4,7 +4,7 @@ function [allProbs, tau, Subunits] = determineTau(Subunits, allPfs, Kinetics);
   pfGtp = sum(countPfGtp(allPfs));
   pfGdp = sum(countPfGdp(allPfs));
 
-  [gdpPenultimateInd, gtpPenultimateInd] = countPenultimate(allPfs);
+  [gdpPenultimateInd, gtpPenultimateInd, gtpGtpPenultimateInd] = countPenultimate(allPfs);
   [gdpBottomInd, gtpBottomInd] = countFtszBottom(allPfs);
 
   gdpBottomNum = length(gdpBottomInd);
@@ -12,6 +12,8 @@ function [allProbs, tau, Subunits] = determineTau(Subunits, allPfs, Kinetics);
   ftszBottomNum = gtpBottomNum + gdpBottomNum;
   gdpPenultimateNum = length(gdpPenultimateInd);
   gtpPenultimateNum = length(gtpPenultimateInd);
+  gtpGtpPenultimateNum = length(gtpGtpPenultimateInd);
+
 
   pfNum = gdpPenultimateNum + gtpPenultimateNum;
   
@@ -125,8 +127,8 @@ function [allProbs, tau, Subunits] = determineTau(Subunits, allPfs, Kinetics);
 
   % PF annealing
   num = 17;
-  reactant1(num) = gtpBottomNum;
-  reactant2(num) = gtpPenultimateNum - 1;
+  reactant1(num) = gtpBottomNum - 1;
+  reactant2(num) = gtpPenultimateNum;
   kinetic(num) =  secondOrderConverter(Kinetics.kanneal);
 
   % PF fragmentation
@@ -134,6 +136,17 @@ function [allProbs, tau, Subunits] = determineTau(Subunits, allPfs, Kinetics);
   reactant1(num) = pfGdp;
   reactant2(num) = 1;
   kinetic(num) =  Kinetics.kfragment;
+
+  % PF fragmentation
+  num = 19;
+  reactant1(num) = gtpBottomNum;
+  reactant2(num) = 1;
+  kinetic(num) =  Kinetics.kfragment;
+
+%  reactant1(num) = gtpBottomNum - 1;
+%  reactant2(num) = gtpPenultimateNum;
+%  kinetic(num) =  secondOrderConverter(Kinetics.kanneal);
+
 
 
   allProbs = reactant1.*reactant2.*kinetic;

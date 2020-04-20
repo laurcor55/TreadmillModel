@@ -61,9 +61,11 @@ function Outputs = runExperiment(Parameters, Kinetics, popup)
         case 16 % Nucleate new PF from T state FtsZ:Cap heterodimer and R state monomer
           [allPfs, pfLocations, Subunits] = nucleationCap(allPfs, pfLocations, Subunits, gtpColor);
         case 17 % PF Annealing
-          allPfs = anneal(allPfs);
+          [allPfs, pfLocations] = anneal(allPfs, pfLocations);
         case 18 % PF Fragmentation
           [allPfs, pfLocations] = fragment(allPfs, pfLocations);
+        case 19 % PF Fragmentation GTP
+          [allPfs, pfLocations] = fragmentGtp(allPfs, pfLocations);
         end
       
       % Housekeeping, done every so often
@@ -85,6 +87,7 @@ function Outputs = runExperiment(Parameters, Kinetics, popup)
       Kinetics.kbongdp = Kinetics.kbongdp./100;
       Kinetics.ktongtp = Kinetics.ktongtp./100;
       Kinetics.ktongdp = Kinetics.ktongdp./100;
+      Kinetics.kanneal = Kinetics.kanneal./100;
     end
     roundCount = roundCount + 1; % Iterates round count. Used if pre-assembling PFs for mixing
   end
