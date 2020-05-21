@@ -15,28 +15,29 @@ function app = formatApp(app)
 
   offset = [0.17, -0.06];
 
-  anchorPoint = [0.01, 0.18];
+  anchorPoint = [0, 0.16];
   addKinetic(app, 'kbongtp', anchorPoint, 2);
   addKinetic(app, 'kboffgtp', anchorPoint + offset, 1);
 
-  anchorPoint = [0.35, 0.18];
+  anchorPoint = [0.33, 0.16];
   addKinetic(app, 'kbongdp', anchorPoint, 2);
   addKinetic(app, 'kboffgdp', anchorPoint + offset, 1);
 
-  anchorPoint = [0.5, 0.68];
-  addKinetic(app, 'ktoffgdp', anchorPoint, 1);
-  addKinetic(app, 'ktongdp', anchorPoint + offset, 2);
+  anchorPoint = [0.44, 0.65];
+  addKinetic(app, 'ktongdp', anchorPoint, 2);
+  addKinetic(app, 'ktoffgdp', anchorPoint + offset, 1);
 
-  addKinetic(app, 'ktongtp', [0.15, 0.65], 2);
-  addKinetic(app, 'ktoffgtp', [0.32, 0.59], 1);
+  anchorPoint = [0.15, 0.65];
+  addKinetic(app, 'ktongtp', anchorPoint, 2);
+  addKinetic(app, 'ktoffgtp', anchorPoint + offset, 1);
 
   addKinetic(app, 'kgdpexchange', [0.18, 0.91], 1);
-  addKinetic(app, 'khyd', [0.35, 0.25], 1);
-  addKinetic(app, 'knuc', [0.35, 0.91], 0);
+  addKinetic(app, 'khyd', [0.3, 0.28], 1);
+  addKinetic(app, 'knuc', [0.33, 0.91], 0);
 
-  anchorPoint = [0.7, 0.1];
-  addKinetic(app, 'kanneal', anchorPoint, 4);
-  addKinetic(app, 'kfragment', anchorPoint - [0 0.05], 3);
+  anchorPoint = [0.77, 0.29];
+  addKinetic(app, 'kanneal', anchorPoint, 2);
+  addKinetic(app, 'kfragment', anchorPoint - [0 0.05], 1);
 
   %set(app.modelPanel, 'Units', 'normalized');
   %% Input Panel Components

@@ -5,17 +5,12 @@ function addKinetic(app, kineticName, location, units)
     label = ' s^-^1';
   elseif (units==2)
     label = ' \muM^-^1s^-^1';
-  elseif (units==3)
-    label = ' fragment';
-  elseif (units==4)
-    label = ' anneal';
   end
 
-  boxCharacters = 8;
-  fullWidth = (length(label)+boxCharacters)*0.007;
+  boxCharacters = 14;
+  fullWidth = (length(label)+boxCharacters)*0.006;
   boxProportion = boxCharacters./(length(label) + boxCharacters);
 
-  
   height = 0.04;
   labelName = strcat(kineticName, 'Input');
   kineticPanel = uipanel('Parent',app.modelPanel, 'BackgroundColor', 'w', 'BorderType', 'none', 'Units', 'normalized', 'Position', [location(1) location(2) fullWidth height]);
