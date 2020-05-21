@@ -13,14 +13,19 @@ function app = formatApp(app)
   imshow(im, 'Parent', modelDiagramAxes);
   set(modelDiagramAxes,'TickLength',[0,0]);
 
-  addKinetic(app, 'kbongtp', [0.01, 0.14], 2);
-  addKinetic(app, 'kboffgtp', [0.18, 0.08], 1);
+  offset = [0.17, -0.06];
 
-  addKinetic(app, 'kbongdp', [0.45, 0.14], 2);
-  addKinetic(app, 'kboffgdp', [0.62, 0.08], 1);
+  anchorPoint = [0.01, 0.18];
+  addKinetic(app, 'kbongtp', anchorPoint, 2);
+  addKinetic(app, 'kboffgtp', anchorPoint + offset, 1);
 
-  addKinetic(app, 'ktongdp', [0.57, 0.65], 2);
-  addKinetic(app, 'ktoffgdp', [0.74, 0.59], 1);
+  anchorPoint = [0.35, 0.18];
+  addKinetic(app, 'kbongdp', anchorPoint, 2);
+  addKinetic(app, 'kboffgdp', anchorPoint + offset, 1);
+
+  anchorPoint = [0.5, 0.68];
+  addKinetic(app, 'ktoffgdp', anchorPoint, 1);
+  addKinetic(app, 'ktongdp', anchorPoint + offset, 2);
 
   addKinetic(app, 'ktongtp', [0.15, 0.65], 2);
   addKinetic(app, 'ktoffgtp', [0.32, 0.59], 1);
@@ -29,8 +34,9 @@ function app = formatApp(app)
   addKinetic(app, 'khyd', [0.35, 0.25], 1);
   addKinetic(app, 'knuc', [0.35, 0.91], 0);
 
-  addKinetic(app, 'kanneal', [0.43, 0.5], 4);
-  addKinetic(app, 'kfragment', [0.43, 0.55], 3);
+  anchorPoint = [0.7, 0.1];
+  addKinetic(app, 'kanneal', anchorPoint, 4);
+  addKinetic(app, 'kfragment', anchorPoint - [0 0.05], 3);
 
   %set(app.modelPanel, 'Units', 'normalized');
   %% Input Panel Components

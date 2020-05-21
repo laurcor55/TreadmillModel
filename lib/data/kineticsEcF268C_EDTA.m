@@ -21,6 +21,6 @@ function Kinetics = kineticsEcF268C_EDTA()
   Kinetics.knuc = 1000;
 
   Kinetics.kanneal = 0.1;
-  Kinetics.kfragment = 0.00001;
+  Kinetics.kfragment = 0.0001;
 
 end

@@ -1,5 +1,5 @@
 function Kinetics = kineticsEcF268C()
-    Kinetics.kbongtp = 10;
+  Kinetics.kbongtp = 10;
   Kinetics.kboffgtp = 3;
 
   Kinetics.kbongdp = 10;
@@ -20,7 +20,7 @@ function Kinetics = kineticsEcF268C()
   Kinetics.kgdpexchange = 0.5;
   Kinetics.knuc = 1000;
 
-  Kinetics.kanneal = 10;
-  Kinetics.kfragment = 0.01;
+  Kinetics.kanneal = 1;
+  Kinetics.kfragment = 0.0001;
   
 end

@@ -16,7 +16,7 @@ function Outputs = runExperiment(Parameters, Kinetics, popup)
     currentTime = 0;
     iteration = 0;
     gdpOffCount = 0;
-
+    hydrolysisCount = 0;
     % Repeat this until iterated through entire time
     while (currentTime < roundTime) 
       gtpColor = gtpColorAssign(roundCount); % Assigns a "color" identifier to FtsZ. Important in pf mixing experiment
@@ -40,6 +40,7 @@ function Outputs = runExperiment(Parameters, Kinetics, popup)
           [Subunits, gdpOffCount] = exchangeMonomerGdp(Subunits, gdpOffCount);
         case 6 % Subunit in PF hydrolyzes GTP
           allPfs = hydrolysis(allPfs);
+          hydrolysisCount = hydrolysisCount + 1;
         case 7 % Nucleate new PF from one T state monomer and one R state monomer
           [allPfs, pfLocations, Subunits] = nucleation(allPfs, pfLocations, Subunits, gtpColor);
         case 8 % FtsZ subunit off top of PF (penultimate subunit is GDP bound)
@@ -71,7 +72,7 @@ function Outputs = runExperiment(Parameters, Kinetics, popup)
       % Housekeeping, done every so often
       if (mod(iteration, collectSampleStep)==0) 
         [allPfs, pfLocations] = removeEmptyCells(allPfs, pfLocations, currentTime, roundTime); % Empties data from PFs that disintegrated over time
-        Outputs = updateOutputs(Outputs, Subunits, allPfs, pfLocations, currentTime, gdpOffCount); % Saves output data
+        Outputs = updateOutputs(Outputs, Subunits, allPfs, pfLocations, currentTime, hydrolysisCount); % Saves output data
         if popup
           waitbar(currentTime./roundTime, waitPopup, 'Running experiment...');
         end
@@ -83,11 +84,11 @@ function Outputs = runExperiment(Parameters, Kinetics, popup)
       allPfs = mixPfs(allPfs); % Mixes assembled PFs if doing mixing experiment
     end
     if (roundCount==1 && Parameters.disassemblePfs==1)
-      Kinetics.kbongtp = Kinetics.kbongtp./100;
-      Kinetics.kbongdp = Kinetics.kbongdp./100;
-      Kinetics.ktongtp = Kinetics.ktongtp./100;
-      Kinetics.ktongdp = Kinetics.ktongdp./100;
-      Kinetics.kanneal = Kinetics.kanneal./100;
+      Kinetics.kbongtp = Kinetics.kbongtp./1000;
+      Kinetics.kbongdp = Kinetics.kbongdp./1000;
+      Kinetics.ktongtp = Kinetics.ktongtp./1000;
+      Kinetics.ktongdp = Kinetics.ktongdp./1000;
+      Kinetics.kanneal = Kinetics.kanneal./1000;
     end
     roundCount = roundCount + 1; % Iterates round count. Used if pre-assembling PFs for mixing
   end
