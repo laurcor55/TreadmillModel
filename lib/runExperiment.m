@@ -1,5 +1,4 @@
 function Outputs = runExperiment(Parameters, Kinetics, popup)
-  
   % Initialize book keeping parameters
   [Subunits, totalRounds, collectSampleStep] = initializeExperiment(Parameters, Kinetics); 
   roundCount = 1;
@@ -65,8 +64,6 @@ function Outputs = runExperiment(Parameters, Kinetics, popup)
           [allPfs, pfLocations] = anneal(allPfs, pfLocations);
         case 18 % PF Fragmentation
           [allPfs, pfLocations] = fragment(allPfs, pfLocations);
-        case 19 % PF Fragmentation GTP
-          [allPfs, pfLocations] = fragmentGtp(allPfs, pfLocations);
         end
       
       % Housekeeping, done every so often

@@ -1,5 +1,5 @@
 function printTable(f, data, totalColumns)
-  fprintf(f, '<link href="../minimal-table.css" rel="stylesheet" type="text/css">\n');
+  fprintf(f, '<link href="minimal-table.css" rel="stylesheet" type="text/css">\n');
   fprintf(f, '<table>\n');
 
   for ii=1:length(data)

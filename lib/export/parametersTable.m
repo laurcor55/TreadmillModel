@@ -1,4 +1,4 @@
-function parametersTable(Parameters, Kinetics)
+function parametersTable(Parameters, Kinetics, folderName)
   if (Parameters.mixPFs==0)
     mixPfsString = 'no';
   else
@@ -20,16 +20,18 @@ function parametersTable(Parameters, Kinetics)
 
   kinetics = {{0,'Kinetics'}
               {'GDP Exchange', num2str(Kinetics.kgdpexchange)},
-              {'GTP Hydrolysis', num2str(Kinetics.khyd)},
-              {'Affinity Switch', num2str(Kinetics.knuc)}};
+              {'khyd', num2str(Kinetics.khyd)},
+              {'Knuc', num2str(Kinetics.knuc)},
+              {'kanneal', num2str(Kinetics.kanneal)},
+              {'kfragment', num2str(Kinetics.kfragment)}};
 
 
-  f = fopen('lib/export/output/parametersTable1.html', 'w+');
+  f = fopen(strcat(folderName, '/parametersTable1.html'), 'w+');
   printTable(f, parameters, 2);
   printTable(f, kinetics, 2);
   fclose(f);
 
-  f = fopen('lib/export/output/parametersTable2.html', 'w+');
+  f = fopen(strcat(folderName, '/parametersTable2.html'), 'w+');
   printTable(f, kineticsPf, 3);
   fclose(f);
 end

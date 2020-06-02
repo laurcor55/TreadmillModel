@@ -129,22 +129,13 @@ function [allProbs, tau, Subunits] = determineTau(Subunits, allPfs, Kinetics);
   num = 17;
   reactant1(num) = gtpBottomNum - 1;
   reactant2(num) = gtpPenultimateNum;
-  kinetic(num) =  secondOrderConverter(Kinetics.kanneal);
+  kinetic(num) = secondOrderConverter(Kinetics.kanneal);
 
   % PF fragmentation
   num = 18;
   reactant1(num) = pfGdp;
   reactant2(num) = 1;
   kinetic(num) =  Kinetics.kfragment;
-
-  % PF fragmentation
-  num = 19;
-  reactant1(num) = pfGtp;
-  reactant2(num) = 1;
-  kinetic(num) = 0;% Kinetics.kfragment.*10;
-
-
-
 
   allProbs = reactant1.*reactant2.*kinetic;
 

@@ -17,14 +17,21 @@ function createResults(Parameters, Kinetics, Outputs, fileExtension)
 
   f1.PaperUnits = 'inches';
   f1.PaperPosition = [0 0 8 8];
-  fileNameNew = strcat('lib/export/output', fileExtension, '.html');
-  copyfile('lib/export/output.html', fileNameNew)
-  saveas(f1,'lib/export/output/output.png');
+  currentFolder = pwd;
+  exportFolder = strcat(currentFolder, '/lib/export/data/export', fileExtension);
+  mkdir(exportFolder);
+  fileNameNew = strcat(exportFolder, '/output.html');
+  copyfile(strcat(currentFolder, '/lib/export/output.html'), fileNameNew);
+  fileNameNew = strcat(exportFolder, '/outputStyle.css');
+  copyfile(strcat(currentFolder, '/lib/export/outputStyle.css'), fileNameNew);
+  fileNameNew = strcat(exportFolder, '/minimal-table.css');
+  copyfile(strcat(currentFolder, '/lib/export/minimal-table.css'), fileNameNew);
+  saveas(f1,strcat(exportFolder, '/output.png'));
   close(f1);
 
 
   finalPropGtp = propGtpCalcFinal(Outputs.savePfs{end});
 
-  parametersTable(Parameters, Kinetics);  
-  resultsTable(monomerSs, hydrolysisSs, meanLength, meanVelocity, finalPropGtp); 
+  parametersTable(Parameters, Kinetics, exportFolder);  
+  resultsTable(monomerSs, hydrolysisSs, meanLength, meanVelocity, finalPropGtp, exportFolder); 
 end
