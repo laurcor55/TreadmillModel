@@ -18,11 +18,11 @@ function h = fragment_test
         [~, pfInd] = find(possiblePf==ii);
         observedPf(pfInd) = observedPf(pfInd) + 1;
         assert(sum([allPfsAfter{ii}; allPfsAfter{end}]) == sum(allPfsBefore{ii}));
+        assert(pfLocationsAfter(end) == pfLocationsBefore(ii)-length(allPfsAfter{end}));
       end
       assert(pfLocationsAfter(ii) == pfLocationsBefore(ii));
     end
     assert(pfFound==1);
-    assert(pfLocationsAfter(ii+1)==0);
 
   end
 

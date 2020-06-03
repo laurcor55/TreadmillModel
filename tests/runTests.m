@@ -5,7 +5,7 @@ addpath('../lib/data');
 addpath('../lib/gillespie');
 
 
-runExperiment_test
+%runExperiment_test
 
 allAnalysisTests
 

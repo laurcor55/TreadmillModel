@@ -1,7 +1,6 @@
 function h = anneal_test
   allPFsBefore = {[1], [2; 3; 1; 1], [2], [1; 4; 5], [0],[],[2; 2; 1; 2; 4; 2],[2; 2; 1; 2; 4; 3], [2; 1], [4; 2]};
 
-
   possibleBottom = [4, 7, 8, 10];
   
   possibleTop = [7, 10];
@@ -22,15 +21,15 @@ function h = anneal_test
           pfBottomFound = pfBottomFound + 1;
           [~, pfInd] = find(possibleBottom==ii);
           observedBottom(pfInd) = observedBottom(pfInd) + 1;
+
         elseif sum(allPFsAfter{ii})>0
           % ii is the PF top
           pfTopFound = pfTopFound + 1;
           [~, pfInd] = find(possibleTop==ii);
           
           observedTop(pfInd) = observedTop(pfInd) + 1;
-
-  
         end
+
       end
     end
 
@@ -41,7 +40,7 @@ function h = anneal_test
 
   expectedTop = [50, 50];
   expectedBottom = [2, 1, 2, 1]./6.*100;
-  h = chiSquared(observedBottom, expectedBottom, 0.05);
-  h = h + chiSquared(observedTop, expectedTop, 0.05);
+  h = chiSquared(observedBottom, expectedBottom, 0.05)
+  h = h + chiSquared(observedTop, expectedTop, 0.05)
   h = h./2;
 end

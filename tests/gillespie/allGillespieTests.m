@@ -43,7 +43,6 @@ for ii=1:samples
 
   %fprintf('iteration %d\n',ii)
 
-  h(16) = anneal_test + h(16);
   h(1) = bottomOffGtp_test + h(1);
   h(2) = bottomOffGdp_test + h(2);
 
@@ -70,6 +69,8 @@ for ii=1:samples
   h(13) = topOffGtpPenultimate_test + h(13);
   h(14) = topOnGdpPenultimate_test + h(14);
   h(15) = topOnGtpPenultimate_test + h(15);
+  h(16) = anneal_test + h(16);
+
 end
 
 %h = h(h~=0);

@@ -1,4 +1,4 @@
-function [allPfs, pfLocations] = anneal(allPfs, pfLocations)
+function [allPfs] = anneal(allPfs)
   
   [~, gtpPenultimateInd, ~] = countPenultimate(allPfs);
   chosenPfBottom = ceil(rand.*(length(gtpPenultimateInd)));
@@ -15,12 +15,11 @@ function [allPfs, pfLocations] = anneal(allPfs, pfLocations)
   r = rand();
   if (r<0.5)
     allPfs{chosenPfTop} = [pfTop; pfBottom];
-    pfLocations(chosenPfTop) = pfLocations(chosenPfTop);% + length(pfBottom);
     allPfs{chosenPfBottom} = [0];
   else
     allPfs{chosenPfBottom} = [pfTop; pfBottom];
-    pfLocations(chosenPfBottom) = pfLocations(chosenPfBottom);% - length(pfTop);
     allPfs{chosenPfTop} = [0];
+
   end
 
 end
