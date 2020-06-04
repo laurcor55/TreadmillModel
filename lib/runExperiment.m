@@ -61,7 +61,7 @@ function Outputs = runExperiment(Parameters, Kinetics, popup)
         case 16 % Nucleate new PF from T state FtsZ:Cap heterodimer and R state monomer
           [allPfs, pfLocations, Subunits] = nucleationCap(allPfs, pfLocations, Subunits, gtpColor);
         case 17 % PF Annealing
-          [allPfs, pfLocations] = anneal(allPfs, pfLocations);
+          allPfs = anneal(allPfs);
         case 18 % PF Fragmentation
           [allPfs, pfLocations] = fragment(allPfs, pfLocations);
         end

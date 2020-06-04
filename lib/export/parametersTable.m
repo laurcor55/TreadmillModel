@@ -20,7 +20,7 @@ function parametersTable(Parameters, Kinetics, folderName)
 
   kinetics = {{0,'Kinetics'}
               {'GDP Exchange', num2str(Kinetics.kgdpexchange)},
-              {'khyd', num2str(Kinetics.khyd)},
+              {'intrinsic GTPase', num2str(Kinetics.khyd)},
               {'Knuc', num2str(Kinetics.knuc)},
               {'kanneal', num2str(Kinetics.kanneal)},
               {'kfragment', num2str(Kinetics.kfragment)}};
