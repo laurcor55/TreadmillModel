@@ -13,20 +13,6 @@ function publishResults(Parameters, Kinetics, Outputs, outputTable)
   if(Parameters.mixPFs>0)
     mixingKineticsPlot(Outputs.savePfs, Outputs.time, subplot(len, wid, 6));
   end
-
-  %outputTable.Parent = resultsFigure;
-  %outputTable.Position = [0.05, 0.05, 0.4, 0.1];
-  
-  %properties = {'Total Time', '[Total FtsZ]', '[Bottom Cap]', 'PF Mixing Experiment?', 'Disassembly Experiment?'};
-  %data = {Parameters.totalTime, Parameters.concTotalFtsZ, Parameters.concCap, logical(Parameters.mixPFs), logical(Parameters.disassemblePfs)}';
-  %T = table(data,'RowNames',properties);
-  %inputTable = uitable('Parent',resultsFigure,'Data',T{:,:},'ColumnName',{},'RowName',T.Properties.RowNames,'Units', 'Normalized', 'Position',[0.05, 0.2, 0.4, 0.1]);
-  
-  %properties1 = {'Interface Nucleotide:', 'Bottom On', 'Bottom Off', 'Top On', 'Top Off'};
-  %data1 = {'GTP', Kinetics.kbongtp, Kinetics.kboffgtp, Kinetics.ktongtp, Kinetics.ktoffgtp}';
-  %data2 = {'GDP', Kinetics.kbongdp, Kinetics.kboffgdp, Kinetics.ktongdp, Kinetics.ktoffgdp}';
-  %T = table(data1, data2,'RowNames',properties1);
-  %inputTable = uitable('Parent',resultsFigure,'Data',T{:, :},'ColumnName',{},'RowName',T.Properties.RowNames,'Units', 'Normalized', 'Position',[0.5, 0.05, 0.45, 0.3]);
   
   subplot('Position', [0.02, 0.02, 0.96, 0.27])
   set(gca, 'YTickLabel', [])
