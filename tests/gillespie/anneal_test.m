@@ -2,10 +2,10 @@ function h = anneal_test
   allPFsBefore = {[1], [2; 3; 1; 1], [2], [1; 4; 5], [0],[],[2; 2; 1; 2; 4; 2],[2; 2; 1; 2; 4; 3], [2; 1], [4; 2]};
 
   possibleBottom = [4, 7, 8, 10];
-  
   possibleTop = [7, 10];
-  observedBottom = zeros(size(possibleBottom));
-  observedTop = zeros(size(possibleTop));
+
+  actualBottom = zeros(size(possibleBottom));
+  actualTop = zeros(size(possibleTop));
 
   for repeat = 1:100
 
@@ -17,30 +17,30 @@ function h = anneal_test
       if (sum(allPFsBefore{ii})~= sum(allPFsAfter{ii}))
         
         if sum(allPFsAfter{ii})==0 && sum(allPFsBefore{ii})>0
-          % ii is the PF bottom
-          pfBottomFound = pfBottomFound + 1;
-          [~, pfInd] = find(possibleBottom==ii);
-          observedBottom(pfInd) = observedBottom(pfInd) + 1;
-
+          removedIndex = ii;
+          pf1 = allPFsBefore{removedIndex};
         elseif sum(allPFsAfter{ii})>0
-          % ii is the PF top
-          pfTopFound = pfTopFound + 1;
-          [~, pfInd] = find(possibleTop==ii);
-          
-          observedTop(pfInd) = observedTop(pfInd) + 1;
+          annealedIndex = ii;
+          pf2 = allPFsBefore{annealedIndex};
         end
-
       end
     end
-
-    assert(pfBottomFound==1);
-    assert(pfTopFound==1);
-
+    if sum(allPFsAfter{annealedIndex}(1:length(pf2)) == pf2) == length(pf2)
+      [~, ind] = find(possibleBottom==removedIndex);
+      actualBottom(ind) = actualBottom(ind) + 1;
+      [~, ind] = find(possibleTop==annealedIndex);
+      actualTop(ind) = actualTop(ind) + 1;
+    else
+      [~, ind] = find(possibleBottom==annealedIndex);
+      actualBottom(ind) = actualBottom(ind) + 1;
+      [~, ind] = find(possibleTop==removedIndex);
+      actualTop(ind) = actualTop(ind) + 1;
+    end
   end
+  expectedBottom = ones(size(possibleBottom)).*100./length(possibleBottom);
+  expectedTop = ones(size(possibleTop)).*100./length(possibleTop);
 
-  expectedTop = [50, 50];
-  expectedBottom = [2, 1, 2, 1]./6.*100;
-  h = chiSquared(observedBottom, expectedBottom, 0.05)
-  h = h + chiSquared(observedTop, expectedTop, 0.05)
+  h = chiSquared(actualBottom, expectedBottom, 0.05);
+  h = h + chiSquared(actualTop, expectedTop, 0.05);
   h = h./2;
 end

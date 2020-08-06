@@ -59,7 +59,7 @@ allProbsGoal(14) = 1.*8.*secondOrderConverter(14); % Bottom on GDP
 allProbsGoal(15) = 4.*3;
 allProbsGoal(16) = 8.*5./(1+5000).*secondOrderConverter(4);
 
-allProbsGoal(17) = (3-1).*4.*secondOrderConverter(2);
+allProbsGoal(17) = (3).*(4-1).*secondOrderConverter(2);
 allProbsGoal(18) = 4.*1.*3.1;
 
 

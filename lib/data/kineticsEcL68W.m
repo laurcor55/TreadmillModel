@@ -14,12 +14,12 @@ function Kinetics = kineticsEcL68W()
   Kinetics.capKd = 0.78;
   Kinetics.kcaponpf = 10;
   Kinetics.kcapoffpf = 1; 
-  Kinetics.kcapoffpfgdp = 0.01;
+  Kinetics.kcapoffpfgdp = 6.5;
 
   Kinetics.khyd = 0.3;
-  Kinetics.kgdpexchange = 1;
+  Kinetics.kgdpexchange = 0.8;
   Kinetics.knuc = 50;
 
-  Kinetics.kanneal = 3;
+  Kinetics.kanneal = 0.5;
   Kinetics.kfragment = 0.0001;
 end

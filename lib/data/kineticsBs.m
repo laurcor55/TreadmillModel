@@ -14,12 +14,12 @@ function Kinetics = kineticsBs()
   Kinetics.capKd = 0.15;
   Kinetics.kcaponpf = 10;
   Kinetics.kcapoffpf = 8; 
-  Kinetics.kcapoffpfgdp = 0.01;
+  Kinetics.kcapoffpfgdp = 6.5;
 
   Kinetics.khyd = 0.4;
-  Kinetics.kgdpexchange = 0.4;
-  Kinetics.knuc = 5000;
+  Kinetics.kgdpexchange = 1;
+  Kinetics.knuc = 20000;
 
-  Kinetics.kanneal = 5;
+  Kinetics.kanneal = 0.5;
   Kinetics.kfragment = 0.0001;
 end

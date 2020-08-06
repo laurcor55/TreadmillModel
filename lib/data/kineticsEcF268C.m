@@ -14,13 +14,13 @@ function Kinetics = kineticsEcF268C()
   Kinetics.capKd = 0.78;
   Kinetics.kcaponpf = 10;
   Kinetics.kcapoffpf = 3; 
-  Kinetics.kcapoffpfgdp = 0.01;
+  Kinetics.kcapoffpfgdp = 6.5;
 
   Kinetics.khyd = 0.3;
-  Kinetics.kgdpexchange = 0.5;
-  Kinetics.knuc = 1000;
+  Kinetics.kgdpexchange = 1;
+  Kinetics.knuc = 5000;
 
-  Kinetics.kanneal = 1;
+  Kinetics.kanneal = 0.1;
   Kinetics.kfragment = 0.0001;
   
 end

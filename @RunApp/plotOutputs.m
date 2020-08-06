@@ -37,8 +37,8 @@ function plotOutputs(app,hObject,eventdata)
   outputDataLabels{4} = 'Treadmill Velocity';
 
   % Final GDP Proportion
-  outputData(5) = gdpProportion(app.Outputs.savePfs{end});
-  outputDataLabels{5} = 'GDP Proportion in PF';
+  outputData(5) = 1 - gdpProportion(app.Outputs.savePfs{end});
+  outputDataLabels{5} = 'GTP Proportion in PF';
 
   % If FRET experiment, plot the mixing of pfs
   if app.Parameters.mixPFs == 1

@@ -69,7 +69,7 @@ function [allProbs, tau, Subunits] = determineTau(Subunits, allPfs, Kinetics);
   num = 7;
   reactant1(num) = Subunits.monomerNum;
   reactant2(num) =  Subunits.monomerNum./(1+Kinetics.knuc); %%%%% CHANGE HERE %%%%%%
-  kinetic(num) = secondOrderConverter(10);
+  kinetic(num) = secondOrderConverter(Kinetics.kbongtp);
 
   % Top off PF with GDP penultimate
   num = 8;
@@ -127,8 +127,8 @@ function [allProbs, tau, Subunits] = determineTau(Subunits, allPfs, Kinetics);
 
   % PF annealing
   num = 17;
-  reactant1(num) = gtpBottomNum - 1;
-  reactant2(num) = gtpPenultimateNum;
+  reactant1(num) = gtpBottomNum;
+  reactant2(num) = gtpPenultimateNum - 1;
   kinetic(num) = secondOrderConverter(Kinetics.kanneal);
 
   % PF fragmentation
