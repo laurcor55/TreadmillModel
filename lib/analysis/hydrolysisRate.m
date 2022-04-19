@@ -10,7 +10,7 @@ function hydrolysisSs = hydrolysisRate(hydrolysisCount, time, ax)
   
   plot(ax, time, hydrolysisRate);
   title(ax, 'GTP Turnover over Time');
-  ylabel(ax, 'GTP Turnover uM GTP/s');
+  ylabel(ax, 'GTP Turnover uM GTP/min');
   xlabel(ax, 'Time (sec)');
   [~, ssInd] = min(abs(time - (time(end) - 10)));
   hydrolysisSs = num2conc(hydrolysisCount(end)-hydrolysisCount(ssInd))./(time(end)-time(ssInd)).*60;
